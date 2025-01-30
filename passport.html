@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .container{
+            
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .main_cont{
+            height: 100vh;
+            width: 100%;
+            display: none;
+        }
+        
+        .box{
+height: 550px;
+width: 500px;
+border-radius: 30px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+background-color: rgba(146, 167, 214, 0.534);
+
+        }
+        .box_2{
+height: 550px;
+width: 500px;
+border-radius: 30px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+text-align: center;
+
+
+        }
+        .box h1{
+            text-transform: capitalize;
+            margin-top: 20px;
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 40px;
+        }
+        .input{
+            height: 200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            align-items: center ;
+
+        }
+        input{
+            height: 50px;
+            width: 90%;
+    margin-top: 10px;
+        }
+        label{
+            font-size: 25px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-transform: capitalize;
+            margin-top: 30px;
+            
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, box-shadow 0.3s;
+            
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+.button{
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+}
+.image_main {
+    height: 330px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.image_main img{
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    background-size: cover;
+    background-position: center;
+}
+.box_2 h1{
+    font-size: 40px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+@media print {
+            body * {
+                visibility: hidden;
+            }
+            .image_main, .image_main * {
+                visibility: visible;
+            }
+            .image_main {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+   <div class="mian_2" id="main">
+    <div class="main" id="main">
+        <div class="box">
+        <h1>create your passport size photo</h1>
+        <div class="input">
+            <label for="">enter your image url</label>
+            <input type="text" name="" id="image" >
+        </div>
+        <div class="button" onclick="passport()"><button>
+            create photo
+        </button></div>
+        </div>
+            </div>
+   </div>
+<div class="main_cont" id="container">
+    <div class="container" >
+        <div class="box_2">
+<div class="image_main" id="image_main"></div>
+<h1>your image</h1>
+<div class="button">
+    <button onclick="printfunc()">print</button>
+    <button onclick="back()">go back</button>
+</div>
+        </div>
+    </div>
+</div>
+    <script>
+passport=()=>{
+    document.getElementById("main").style.display="none"
+    document.getElementById("container").style.display="block"
+    let url=  document.getElementById("image").value
+    
+    let main_cont_box=document.getElementById("image_main")
+    for(let i=0; i<42; i++){
+      const image = document.createElement("img");
+  image.setAttribute("id", "id");
+image.setAttribute("src",url)
+  main_cont_box.appendChild(image)
+  
+    
+    }
+
+}
+back=()=>{
+    document.getElementById("main").style.display="block"
+    document.getElementById("container").style.display="none"
+
+}
+printfunc =()=>{
+  window.print()
+}
+
+    </script>
+</body>
+</html>
